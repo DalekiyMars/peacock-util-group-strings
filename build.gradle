@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.ITQGroup'
+group = 'com.PeacockTeam'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -16,4 +16,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    archiveFileName = 'PeacockUtil.jar'
+    manifest {
+        attributes 'Main-Class': 'com.PeacockTeam.Main'
+    }
 }

@@ -1,7 +1,5 @@
 package com.PeacockTeam;
 
-import java.util.Objects;
-
 public class DSU {
     private final int[] parent;
     private final int[] rank;
@@ -14,16 +12,26 @@ public class DSU {
         }
     }
 
-    // Поиск корня
+    /**
+     * Поиск корня
+     */
     public int find(int i) {
-        if (Objects.equals(parent[i], i)) {
-            return i;
+        // Находим корень
+        int root = i;
+        while (parent[root] != root) {
+            root = parent[root];
         }
-        // Перевешиваем элементы напрямую к корню
-        return parent[i] = find(parent[i]);
+        while (parent[i] != root) {
+            int next = parent[i];
+            parent[i] = root;
+            i = next;
+        }
+        return root;
     }
 
-    // Объединение двух множеств
+    /**
+     * Объединение двух множеств.
+     */
     public void union(int i, int j) {
         int rootI = find(i);
         int rootJ = find(j);
