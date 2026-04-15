@@ -1,4 +1,4 @@
-package com.ITQGroup;
+package com.PeacockTeam;
 
 import java.util.Objects;
 
